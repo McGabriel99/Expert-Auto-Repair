@@ -18,15 +18,13 @@ class RepairList {
 
 private:
 
-	// Data members are already provided
+	// Data members
 	std::list<Repair> _dailyList;
 	std::list<Repair>::iterator _nowServicing;
 
 public:
 
-	/*************************************
-	**  Following functions already done
-	**************************************/
+	
 	RepairList() = default;  // default constructor
 
 	RepairList( const RepairList & other ) = default; // copy constructor
@@ -37,31 +35,29 @@ public:
 
 	void loadAdvanceList(const std::string& filename); // read from a file
 
-	/*************************************
-	**  Following functions TO BE DONE
-	**************************************/
-	std::size_t size() const; // TO DO
+	
+	std::size_t size() const;
 	// returns the number of repair requests in the list
 
-	Repair currRepair() const; // TO DO
+	Repair currRepair() const; 
 	// returns the current repair request
 
-	void next(); // TO DO
+	void next(); 
 	//go to the next repair request in the list, if any
 
-	void addToList(const Repair& newRequest); // TO DO
+	void addToList(const Repair& newRequest); 
 	// append a new repair request to the end of the list
 
-	void insertLoyal(const Repair& newRequest); // TO DO
+	void insertLoyal(const Repair& newRequest); 
 	// insert a new repair request after the current position of the list
 
-	void insertPriority(const Repair& newRequest); // TO DO
+	void insertPriority(const Repair& newRequest);
 	// insert a new repair request before the current position of the list
 
-	string numberInRepairList(size_t number); // TO DO
+	string numberInRepairList(size_t number); 
 	// returns the vehicle that was serviced at given number in the list
 
-	double maxCost(); // TO DO
+	double maxCost(); 
 	// returns the maximum cost among all repairs
 
 
@@ -69,9 +65,6 @@ public:
 };
 
 
-/**********************************************************
-**  Friend functions: read and write: ALREADY COMPLETED
-***********************************************************/
 
 std::ostream& operator<<(std::ostream& stream, const RepairList& repairlist)
 {
@@ -116,11 +109,7 @@ void RepairList::loadAdvanceList(const std::string& filename)
 }
 
 
-/*************************************
-	**  Following functions TO BE DONE
-**************************************/
 
-// TO DO
 // return the size of the list
 
 std::size_t RepairList::size() const
@@ -128,7 +117,7 @@ std::size_t RepairList::size() const
 	return _dailyList.size();
 }
 
-// TO DO
+
 // return the current repair
 Repair RepairList::currRepair() const
 {
@@ -136,7 +125,7 @@ Repair RepairList::currRepair() const
 
 }
 
-// TO DO
+
 // the current repair has been serviced so move the iterator to the next request
 void RepairList::next()
 {
@@ -144,14 +133,14 @@ void RepairList::next()
 }
 
 
-// TO DO
+
 // add a repair request to the end of current list
 void RepairList::addToList(const Repair& newRequest)
 {
 	_dailyList.push_back(newRequest);
 }
 
-// TO DO
+
 // insert a new repair request coming from a loyal customer
 // right after the current position but do not make changes to the current position
 void RepairList::insertLoyal(const Repair& newRequest)
@@ -161,14 +150,14 @@ void RepairList::insertLoyal(const Repair& newRequest)
 	--_nowServicing;
 }
 
-// TO DO
+
 // insert a new repair request before the current position of the list
 void RepairList::insertPriority(const Repair& newRequest)
 {
 	_nowServicing = _dailyList.insert(_nowServicing, newRequest);
 }
 
-// TO DO
+
 // returns the vehicle that was serviced at given number in the list
 string RepairList::numberInRepairList(size_t number)
 {
@@ -177,7 +166,7 @@ string RepairList::numberInRepairList(size_t number)
 	return  _nowServicing->vehicle();
 }
 
-// TO DO
+
 // returns the maximum cost among all repairs
 double RepairList::maxCost()
 {
